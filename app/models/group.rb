@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   validates :title, presence: {message: '此栏位不可是空白！'}
 
-  has_many :posts    
+  has_many :posts, dependent: :destroy
   has_many :group_users
   has_many :members, through: :group_users, source: :user
 
